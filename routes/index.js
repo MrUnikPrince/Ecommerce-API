@@ -4,6 +4,6 @@
 const router = require('express').Router();
 console.log('router ');
 // product request
-router.use('/product', require('./product'));
+router.use('/products', require('./product'));
 
 module.exports = router;
