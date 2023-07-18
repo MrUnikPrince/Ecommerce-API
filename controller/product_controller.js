@@ -22,5 +22,16 @@ module.exports.create = async (req,res) =>{
         res.status(400).json({message:`Error in creating Product ${err.message}`});
     }
 }
-
+module.exports.delete = async (req, res) => {
+    try{
+        const deleteProduct = await Product.deleteOne(req.params.id);
+        if(deleteProduct){
+            res.json({message:`Product Deleted `});
+        }else{
+            res.status(404).json({message:`Product not Found`});
+        }
+    }catch(err){
+        res.status().json({message: `Error in Deleting Product ${err.message}`});
+    }
+}
 
