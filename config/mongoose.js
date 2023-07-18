@@ -1,10 +1,12 @@
-const { log } = require('console');
+// const { log } = require('console');
 const mongoos = require('mongoose');
 
-mongoos.connect('mongodb://localhost/product', { useNewUrlParser: true, useUnifiedTopology: true })
+// creating connection with database
+
+mongoos.connect('mongodb://127.0.0.1:27017/product', { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => {
-    log('Connected to the Database');
+    console.log('Connected to the Database');
 }) 
 .catch ((err) => { 
-    log(`Error in Conneting to the Database : ${err}`);
+    console.log(`Error in Conneting to the Database : ${err}`);
 });
