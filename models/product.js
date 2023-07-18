@@ -1,5 +1,7 @@
-const { timeStamp } = require('console');
+// const { timeStamp } = require('console');
 const mongoos = require('mongoose');
+
+// creating Schema for Products
 const productSchema = mongoos.Schema({
     id: {
         type: String, // Assuming id is a number
