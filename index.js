@@ -7,10 +7,8 @@ const app = express();
 // middleware
 app.use(express.json());
 
-
 // const routesPath = require('./routes');
 app.use('/', require('./routes'));
-
 
 // Server 
 app.listen(port, (err) => {

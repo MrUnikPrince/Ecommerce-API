@@ -11,7 +11,6 @@ module.exports.getProducts = async (req, res) => {
 }
 
 // insert a Product
-
 module.exports.create = async (req, res) => {
     try {
         const { id, name, quantity } = req.body;
@@ -23,6 +22,7 @@ module.exports.create = async (req, res) => {
     }
 }
 
+// Delete Specific Product
 module.exports.delete = async (req, res) => {
     try {
         const productId = req.params.id;

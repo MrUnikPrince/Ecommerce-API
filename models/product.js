@@ -1,11 +1,10 @@
-// const { timeStamp } = require('console');
 const mongoos = require('mongoose');
 
 // creating Schema for Products
 const productSchema = mongoos.Schema({
     id: {
-        type: Number, // Assuming id is a number
-        required: true, // Assuming id is a required field
+        type: Number, 
+        required: true,
         unique:true
     },
     name: {
