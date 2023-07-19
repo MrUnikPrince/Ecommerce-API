@@ -4,15 +4,16 @@ const mongoos = require('mongoose');
 // creating Schema for Products
 const productSchema = mongoos.Schema({
     id: {
-        type: String, // Assuming id is a number
-        required: true // Assuming id is a required field
+        type: Number, // Assuming id is a number
+        required: true, // Assuming id is a required field
+        unique:true
     },
     name: {
         type: String,
         required: true
     },
     quantity: {
-        type: String,
+        type: Number,
         required: true
     }
 }, { timeStamp: true })
