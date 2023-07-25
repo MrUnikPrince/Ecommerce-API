@@ -1,4 +1,4 @@
-ChatGPT
+
 E-commerce API
 
 This is a simple E-commerce API built using Node.js, Express.js, and MongoDB (Mongoose) that allows you to manage products.

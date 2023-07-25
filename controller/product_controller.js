@@ -6,7 +6,8 @@ module.exports.getProducts = async (req, res) => {
         const products = await Product.find();
         res.json(products);
     } catch (err) {
-        res.status(500).json({ message: `Error in Retrieving Products ${err}` })
+        console.error(`Error in Retrieving Products: ${err.message}`);
+        res.status(500).json({ error: `Internal Server Error` });
     }
 }
 
@@ -18,7 +19,8 @@ module.exports.create = async (req, res) => {
         const product = await newProduct.save();
         res.status(200).json({data:{product}});
     } catch (err) { 
-        res.status(400).json({ message: `Error in creating Product ${err.message}` });
+        console.error(`Error in creating Product ${err.message}`);
+        res.status(400).json({ error: `Bad Request` });
     }
 }
 
@@ -31,10 +33,11 @@ module.exports.delete = async (req, res) => {
         if(deletedProduct){
             res.json({message:`Product Deleted `});
         }else{
-            res.status(404).json({message:`Product not Found`});
+            res.status(404).json({error:`Product not Found`});
         }
     } catch (err) {
-        res.status(400).json({ message: `Error in Deleting Product ${err.message}` });
+        console.error(`Error in Deleting Product ${err.message}`)
+        res.status(500).json({ error: `Internal Server Error` });
     }
 }
 
@@ -42,12 +45,16 @@ module.exports.delete = async (req, res) => {
 module.exports.update = async (req, res) => {
     try {
         const productId = req.params.id;
-        const { number } = req.query;
+        const { number } = req.query.number;
 
+        // validate the number parameter
+        if(isNaN(number) || number <= 0){
+            return res.status(400).json({error: `Invalid or missing "number" parameter`});
+        }
         // Find Product by ID
         const product = await Product.findOne({ id: productId });
         if (!product) {
-            return res.status(404).json({ message: `Product not found` })
+            return res.status(404).json({ error: `Product not found` })
         }
         // Update the Quantity of product 
         const updatedQuantity = product.quantity + parseInt(number);
@@ -58,7 +65,8 @@ module.exports.update = async (req, res) => {
 
         return res.status(200).json({ data:{product}, message: `Updated successfully` })
     } catch (err) {
-        res.status(500).json({ message: `Error in updataing Quantity ${err.message}` });
+        console.error('Error in updataing Quantity ${err.message}');
+        res.status(500).json({ error: `Internal Server Error` });
     }
 }
 

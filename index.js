@@ -1,6 +1,6 @@
 // const { log } = require('console');
 const express = require('express'); 
-const port = 9000;
+const port = process.env.PORT || 9000;  // Use environment variable or default to 9000
 const db = require('./config/mongoose')
 const app = express();
 
