@@ -1,4 +1,4 @@
-
+ChatGPT
 E-commerce API
 
 This is a simple E-commerce API built using Node.js, Express.js, and MongoDB (Mongoose) that allows you to manage products.
@@ -15,25 +15,13 @@ Getting Started
 
 bash
 
-git clone https://github.com/your-username/e-commerce-api.git
+git clone https://github.com/MrUnikPrince/Ecommerce-API
 cd e-commerce-api
 
     Install the dependencies:
 
 npm install
-
-    Start the MongoDB server:
-
-Make sure MongoDB is installed on your system, and start the MongoDB server by running the following command in your terminal:
-
-mongod
-
-    Start the API:
-
-sql
-
-npm start
-
+ 
 The API will be running at http://localhost:9000.
 API Endpoints
 
